@@ -20,7 +20,15 @@ The class State has several instances that all help keeping track of the game, w
 By keeping data for the players, keep track of when the game is over or resetting the game.
 
 ## Question three
-
+The method that is requested is ResetGame() which starts with resetting the board by using the method ResetBoard() from GameState.cs.
+After that it resets the winner message and error message and lastly it cleares out all the pieces:
+    void ResetGame()
+    {
+        State.ResetBoard();
+        winnerMessage = string.Empty;
+        errorMessage = string.Empty;
+        pieces = new string[42];
+    }
 
 ## Question four
 
