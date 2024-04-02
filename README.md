@@ -50,7 +50,7 @@ basically creates a new list with 42 int elements which represents the 42 spots 
 reset of the winner message and error message. Lastly a new array of 42 strings for pieces, when creating new ones the old ones has to be resetted.
 
 ## Question eight
-To answer an click event in **_Blazor_** the **_onclick_** attribute is used in the _HTML_ part to assosiate with the **_C#_** method during the click. In this 
+To answer an click event in **_Blazor_** the **_onclick_** attribute is used in the **_HTML_** part to assosiate with the **_C#_** method during the click. In this 
 project the **_onclick_** is used to call the method **_PlayPiece_** when the playcer clicks the game pieces in the game. The syntax is 
 **_@onclick="() => PlayPiece(col)"_** where **_PlayPiece_** is the method and **_col_** is the current column associated with the click.
 
