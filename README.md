@@ -60,4 +60,7 @@ runs when the component is first created and initialized. It is a good place to 
 rendered. In this game the _**OnInitialized**_ method is used to reset the games board to its starting state when the component is first rendered.
 
 ## Question ten
-
+For a component to handle a specific route in **_Blazor_** it has to be rendered within either an _**RouteView**_ or an _**Route**_ component.
+Each _**Route**_ component defines a specific path and its associated component. When the user navigates to the specified path the associated component is
+rendered. Within the associated component you can use life cycle methods such as _**OnInitializedAsync**_ or _**OnParametersSet**_ to perform logic based
+on the specific route or other relevant parameters. 
