@@ -50,11 +50,14 @@ basically creates a new list with 42 int elements which represents the 42 spots 
 reset of the winner message and error message. Lastly a new array of 42 strings for pieces, when creating new ones the old ones has to be resetted.
 
 ## Question eight
-To answer an click event in **_Blazor_** the **_onclick_** attribute is used in the **_HTML_** part to assosiate with the **_C#_** method during the click. In this 
-project the **_onclick_** is used to call the method **_PlayPiece_** when the playcer clicks the game pieces in the game. The syntax is 
+To answer an click event in **_Blazor_** the **_onclick_** attribute is used in the **_HTML_** part to associate with the **_C#_** method during the click. In this 
+project the **_onclick_** is used to call the method **_PlayPiece_** when the player clicks the game pieces in the game. The syntax is 
 **_@onclick="() => PlayPiece(col)"_** where **_PlayPiece_** is the method and **_col_** is the current column associated with the click.
 
 ## Question nine
-
+To place logic which initializes the component you can use the components **_OnInitialized_** method, this is a life cycle method which
+runs when the component is first created and initialized. It is a good place to put the logic that needs to be run when the componement is first
+rendered. In this game the _**OnInitialized**_ method is used to reset the games board to its starting state when the component is first rendered.
 
 ## Question ten
+
