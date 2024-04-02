@@ -16,8 +16,11 @@ followed by adding a round to the variable gameRoundsPlayed.
 
 
 ## Question two
+The class State has several instances that all help keeping track of the game, which makes the user experience better. 
+By keeping data for the players, keep track of when the game is over or resetting the game.
 
 ## Question three
+
 
 ## Question four
 
