@@ -16,13 +16,15 @@ namespace TestConnectFour.Tests
         public void CheckForWin_NoWinner_EmptyBoard()
         {
             //arrange
-            //_gameState.TheBoard = new List<int>(new int[42]);
+            _gameState.ResetBoard();
 
             //act
             var result = _gameState.CheckForWin();
 
             //assert
             Assert.Equal(GameState.WinState.No_Winner, result);
+            Assert.False(_gameState.CheckForWin() != GameState.WinState.No_Winner);
+            Assert.True(_gameState.TheBoard.All(cell => cell == 0));
         }
 
         [Fact]
@@ -39,6 +41,9 @@ namespace TestConnectFour.Tests
 
             //assert
             Assert.Equal(GameState.WinState.Tie, result);
+            Assert.False(_gameState.CheckForWin() != GameState.WinState.Tie);
+            Assert.False(_gameState.CheckForWin() == GameState.WinState.Player1_Wins);
+            Assert.False(_gameState.CheckForWin() == GameState.WinState.Player2_Wins);
         }
     }
 }

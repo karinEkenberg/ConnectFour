@@ -1,13 +1,17 @@
 ﻿@inject GameState State
+
 <HeadContent>
 <style>
+   
+
         :root {
-            --board-bg: #C4E4FF;
-            --player1: #D20062;
+            --board-bg: #C4E4FF; 
+             --player1: #D20062;
             --player2: #D895DA;
         }
 </style>
 </HeadContent>
+
 <nav>
     @for (byte i = 0; i < 7; i++)
     {
@@ -22,37 +26,47 @@
 <span class="alert-info">@CurrentTurn</span>
 </article>
 <div>
-<div class="board">
+    <div class="board">
         @for (var i = 0; i < 42; i++)
         {
-<span class="container">
-<span></span>
-</span>
+            <span class="container">
+            <span></span>
+            </span>
         }
  
     </div>
     @for (var i = 0; i < 42; i++)
     {
-<span class="@pieces[i]"></span>
+        <span class="@pieces[i]"></span>
     }
- 
 </div>
+
+
+
  
 @code {
- 
+    // [Parameter]
+    // public string BoardStyle { get; set; } = "color:#C4E4FF";
+
+    // [Parameter]
+    // public string Player1 { get; set; } = "color:#D20062";
+
+    // [Parameter]
+    // public string Player2 { get; set; } = "color:#D895DA";
+
     private string[] pieces = new string[42];
     private string winnerMessage = string.Empty;
     private string errorMessage = string.Empty;
- 
+
     private string CurrentTurn => (winnerMessage == string.Empty) ? $"Player {State.PlayerTurn}'s Turn" : "";
     private string ResetStyle => (winnerMessage == string.Empty) ? "display:none;" : "";
- 
+
     protected override void OnInitialized()
     {
         State.ResetBoard();
     }
- 
-    private void PlayPiece(byte col)
+
+    private async void PlayPiece(byte col)
     {
         errorMessage = string.Empty;
         try
