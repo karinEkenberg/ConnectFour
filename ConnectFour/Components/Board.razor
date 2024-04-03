@@ -2,13 +2,11 @@
 
 <HeadContent>
 <style>
-   
-
-        :root {
+/*         :root {
             --board-bg: #C4E4FF; 
              --player1: #D20062;
             --player2: #D895DA;
-        }
+        } */
 </style>
 </HeadContent>
 
@@ -25,7 +23,7 @@
 <span class="alert-danger">@errorMessage</span>
 <span class="alert-info">@CurrentTurn</span>
 </article>
-<div>
+<div style="--board-bg: @BoardStyle">
     <div class="board">
         @for (var i = 0; i < 42; i++)
         {
@@ -37,7 +35,7 @@
     </div>
     @for (var i = 0; i < 42; i++)
     {
-        <span class="@pieces[i]"></span>
+        <span style="--player1: @Player1; --player2: @Player2" class="@pieces[i]"></span>
     }
 </div>
 
@@ -45,14 +43,14 @@
 
  
 @code {
-    // [Parameter]
-    // public string BoardStyle { get; set; } = "color:#C4E4FF";
+    [Parameter]
+    public string BoardStyle { get; set; } = "#C4E4FF";
 
-    // [Parameter]
-    // public string Player1 { get; set; } = "color:#D20062";
+    [Parameter]
+    public string Player1 { get; set; } = "#D20062";
 
-    // [Parameter]
-    // public string Player2 { get; set; } = "color:#D895DA";
+    [Parameter]
+    public string Player2 { get; set; } = "#D895DA";
 
     private string[] pieces = new string[42];
     private string winnerMessage = string.Empty;
