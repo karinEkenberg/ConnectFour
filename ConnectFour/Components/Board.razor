@@ -1,4 +1,6 @@
 ﻿@inject GameState State
+@inject IJSRuntime JSRuntime;
+
 
 <HeadContent>
 <style>
@@ -38,10 +40,9 @@
         <span style="--player1: @Player1; --player2: @Player2" class="@pieces[i]"></span>
     }
 </div>
+<audio id="player1Audio" src="/Audio/player1sound.mp3" type="audio/mp3"></audio>
+<audio id="player2Audio" src="/Audio/player2sound.mp3" type="audio/mp3"></audio>
 
-
-
- 
 @code {
     [Parameter]
     public string BoardStyle { get; set; } = "#C4E4FF";
@@ -73,6 +74,9 @@
             var turn = State.CurrentTurn;
             var landingRow = State.PlayPiece(col);
             pieces[turn] = $"player{player} col{col} drop{landingRow}";
+
+            var audioId = player == 1 ? "player1Audio" : "player2Audio";
+            await JSRuntime.InvokeVoidAsync("eval", $"document.getElementById('{audioId}').play()");
         }
         catch (ArgumentException ex)
         {
