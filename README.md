@@ -76,3 +76,14 @@ on an empty board. Then I check if _**assert**_ is false by verifying that _**Ch
 Lastly I check if _**assert**_ is true by controlling if all the cells are empty by using the _**All**_ method to test every cell and compare their value with zero.
 The tests for _**CheckForWin_NoWinner_EmptyBoard**_ all passes the test. 
 
+Next is the _**CheckForWin_TieGame**_ test method. The _**arrange**_ part here consists of a board filled with gametiles which makes the game a tie. By using a loop
+I place pieces from the two players until it is a tie. The _**act**_ part of this test calls the _**CheckForWin**_ method on the _**_gameState**_ object and saves the
+result in a _**variable**_. This is done to check which win state is returned when the game is a tie.
+
+The _**assert**_ part of this test has four statements. The first one controls that the returned result from _**CheckForWin**_ is the same as _**WinState.Tie**_, which 
+indicates that the game is a tie. The next statement verifies that _**CheckForWin**_ does not return anything else than _**Tie**_. Next statement controls that _**CheckForWin**_
+does not return the _**Player1_Wins**_ condition because the game was a tie. Lastly the same control is made for _**Player2_wins**_ for the same reason. The _**CheckForWin_TieGame**_
+method does not pass the unit test. 
+
+The message says **_"  Message: Assert.False() Failure Expected: False Actual: True "_**. This indicates that the _**CheckForWin**_ method returns a _**Winstate.Tie**_ even
+when it is not a tie. Something could be wrong with the _**CheckForWin**_ method in the _**GameState**_ class. 
