@@ -64,3 +64,15 @@ For a component to handle a specific route in **_Blazor_** it has to be rendered
 Each _**Route**_ component defines a specific path and its associated component. When the user navigates to the specified path the associated component is
 rendered. Within the associated component you can use life cycle methods such as _**OnInitializedAsync**_ or _**OnParametersSet**_ to perform logic based
 on the specific route or other relevant parameters. 
+
+## Unit testing with XUnit
+When doing the unit tests for the method _**CheckForWin**_ I started with the _**CheckForWin_NoWinner_EmptyBoard**_ method. I first **_arrange_** an empty board.
+Then call the method _**CheckForWin**_ on the _**_gameState**_ object for the _**act**_ part of the test, since I want to check which state of win is returned
+when testing an empty game board. The _**assert**_ part of the test is having three different ways of checking that the outcome is correct. Since it is good 
+practice to check in more than one way.
+
+First I check that the _**assert**_ is equal by comparing if the _**CheckForWin**_ is equal to _**WinState.No_Winner**_ which indicates that there is no winner
+on an empty board. Then I check if _**assert**_ is false by verifying that _**CheckForWin**_ do not return anything else than the win state of _**No_Winner**_.
+Lastly I check if _**assert**_ is true by controlling if all the cells are empty by using the _**All**_ method to test every cell and compare their value with zero.
+The tests for _**CheckForWin_NoWinner_EmptyBoard**_ all passes the test. 
+
